@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :kinds
   # atalho dos recursos. É o que eu vou trabalhar. O nome do recurso deve estar no plural.
   resources :contacts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
