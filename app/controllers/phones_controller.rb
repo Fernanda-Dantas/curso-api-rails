@@ -1,10 +1,9 @@
 class PhonesController < ApplicationController
     before_action :set_phones
 
-
       # GET /phones/1
   def show
-    render json: @kind
+    render json: @phones
   end
 
 
