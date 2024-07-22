@@ -1,4 +1,13 @@
 class KindsController < ApplicationController
+
+  TOKEN = "secret123"
+
+  # include ActionController::HttpAuthentication::Digest::ControllerMethods
+  # USERS = {"fernanda" => OpenSSL::Digest::MD5.hexdigest(["fernanda","Application","secret"].join(":"))}
+   
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+
+  before_action :authenticate
   before_action :set_kind, only: %i[ show update destroy ]
 
   # GET /kinds
@@ -52,5 +61,16 @@ class KindsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def kind_params
       params.require(:kind).permit(:description)
+    end
+
+    def authenticate
+      # authenticate_or_request_with_http_digest("Application") do |username|
+      #   USERS[username]
+      # end
+      authenticate_or_request_with_http_token do |token, options|
+        # Compare the tokens in a time-constant manner, to mitigate
+        # timing attacks.
+        ActiveSupport::SecurityUtils.secure_compare(token, TOKEN)
+      end
     end
 end
