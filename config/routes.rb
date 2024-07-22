@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :auths, only: [:create]
   resources :kinds
   # atalho dos recursos. É o que eu vou trabalhar. O nome do recurso deve estar no plural.
   resources :contacts do
