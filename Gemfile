@@ -14,6 +14,9 @@ gem "sqlite3", "~> 1.4"
 gem "puma", ">= 5.0"
 # Json Web Token
 gem 'jwt'
+# Devise Token Auth
+gem 'devise_token_auth'
+
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
