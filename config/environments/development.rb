@@ -78,4 +78,11 @@ Rails.application.configure do
 
   config.file_watcher = ActiveSupport::FileUpdateChecker
 
+  config.hosts << "meusite.local:3000/v1/contacts"
+  config.hosts << "meusite.local:3000/v2/contacts"
+  config.hosts << "meusite.local:3000"
+
+  config.action_dispatch.tld_length = 0
+
+
 end
