@@ -3,7 +3,7 @@ class PhoneSerializer < ActiveModel::Serializer
 
         #O telefone belongs a um contato
         belongs_to :contact do
-          link(:related) { contact_phones_url(object.contact.id) }
+        #  link(:related) { contact_phones_url(object.contact.id) }
         end
   end
   

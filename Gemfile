@@ -46,6 +46,8 @@ gem "bootsnap", require: false
 # FOREMAN GEM
 gem "foreman"
 
+gem "versionist"
+
  # ActiveModelSerializers
  gem 'active_model_serializers', '~> 0.10.0'
 
