@@ -4,20 +4,39 @@ Rails.application.routes.draw do
 #  resources :auths, only: [:create]
   resources :kinds
   # atalho dos recursos. É o que eu vou trabalhar. O nome do recurso deve estar no plural.
-  resources :contacts do
 
-    resource :kind, only: [:show]
-    resource :kind, only: [:show], path: 'relationships/kind'
+  scope module: 'v1' do
+    resources :contacts, :constrains => lambda { |request| request.params[:version] == "1" } do
 
-    resource :phones, only: [:show]
-    resource :phones, only: [:show], path: 'relationships/phones'
+      resource :kind, only: [:show]
+      resource :kind, only: [:show], path: 'relationships/kind'
 
-    resource :phone, only: [:update, :create, :destroy]
-    resource :phone, only: [:update, :create, :destroy], path: 'relationships/phones'
+      resource :phones, only: [:show]
+      resource :phones, only: [:show], path: 'relationships/phones'
 
-    resource :address, only: [:show, :update, :create, :destroy]
-    resource :address, only: [:show, :update, :create, :destroy], path: 'relationships/address'
+      resource :phone, only: [:update, :create, :destroy]
+      resource :phone, only: [:update, :create, :destroy], path: 'relationships/phones'
+
+      resource :address, only: [:show, :update, :create, :destroy]
+      resource :address, only: [:show, :update, :create, :destroy], path: 'relationships/address'
+    end
   end
 
+  scope module: 'v2' do
+    resources :contacts, :constrains => lambda { |request| request.params[:version] == "2" } do
+
+      resource :kind, only: [:show]
+      resource :kind, only: [:show], path: 'relationships/kind'
+
+      resource :phones, only: [:show]
+      resource :phones, only: [:show], path: 'relationships/phones'
+
+      resource :phone, only: [:update, :create, :destroy]
+      resource :phone, only: [:update, :create, :destroy], path: 'relationships/phones'
+
+      resource :address, only: [:show, :update, :create, :destroy]
+      resource :address, only: [:show, :update, :create, :destroy], path: 'relationships/address'
+    end
+  end
 
 end
