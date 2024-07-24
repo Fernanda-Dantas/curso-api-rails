@@ -22,7 +22,7 @@ gem 'devise-i18n'
 gem 'kaminari'
 
 #Link header pagination for Rails and Grape APIs.
-gem 'api-pagination'
+# gem 'api-pagination'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
