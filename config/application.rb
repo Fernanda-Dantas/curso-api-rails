@@ -7,6 +7,8 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 require 'devise'
+# require_relative 'config/environment'
+require_relative '../lib/middleware/app_name'
 
 module NotebookApi
   class Application < Rails::Application
@@ -30,5 +32,10 @@ module NotebookApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    # autoload/lib
+    config.autoload_paths << Rails.root.join('lib')
+    config.middleware.use AppName, "Teste - OK! API"
+  #  use AppName, 'Teste - OK! API'
+  #  run Rails.application
   end
 end
