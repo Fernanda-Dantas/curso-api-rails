@@ -18,6 +18,11 @@ gem 'jwt'
 gem 'devise_token_auth'
 gem 'devise-i18n'
 
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem 'kaminari'
+
+#Link header pagination for Rails and Grape APIs.
+gem 'api-pagination'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
