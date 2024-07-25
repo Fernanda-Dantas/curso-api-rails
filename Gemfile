@@ -62,6 +62,7 @@ group :development, :test do
   # gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
   #  a library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker', '>= 2.0', '< 3.0'
+  gem 'rspec-rails', '~> 6.1.0'
   # pry-rails
   gem 'pry-rails'
 end
