@@ -39,3 +39,5 @@ Rails.application.routes.draw do
   end
 
 end
+
+# Curso finalizado com sucesso!
